@@ -4,6 +4,7 @@ import Axios from "npm:axios";
 type Personaje = {
     id: number;
     name: string;
+   
 };
 
 type Data = {
@@ -43,7 +44,9 @@ const Page = ({ data }: PageProps<Data>) => {
             {data.error && <p style={{ color: "red" }}>{data.error}</p>}
 
             {
-            data.personaje ? (<h2>Personaje encontrado: {data.personaje.name}</h2>) : (<p>Ingresa un nombre para buscar un personaje.</p>)
+            data.personaje ? (<h2>Personaje encontrado: {data.personaje.name}</h2>
+                                
+            ) : (<p>Ingresa un nombre para buscar un personaje.</p>)
             }
         </div>
     );
