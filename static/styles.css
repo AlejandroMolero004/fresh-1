@@ -127,3 +127,92 @@ html {
 .tabular-nums {
   font-variant-numeric: tabular-nums;
 }
+
+button{
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin:5px;
+  text-decoration-line: none;
+  text-decoration: none;
+}
+button.primary{
+  background-color: green;
+}
+button.secondary{
+  background-color: red;
+  text-align: center;
+}
+button.primary:hover{
+  background-color: #869bef;
+  border-radius: 20px;
+}
+button.primary:active{
+  background-color: aquamarine;
+  color: white;
+}
+button.secondary:hover{
+  background-color: #f97800;
+  border-radius: 20px;
+}
+button.secondary:active{
+  background-color: aquamarine;
+  color: white;
+}
+.container{
+  display: flex;
+  flex-wrap:wrap;
+  justify-content: center;
+  align-items: center;
+  
+}
+.title{
+  text-align: center;
+}
+.next{
+  display: flex;
+  justify-content: center;
+}
+.personaje{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.nombre{
+  text-align: center;
+  justify-content: center;
+}
+.buscador{
+  display: flex;
+  justify-content: center;
+}
+.back{
+  display: flex;
+  justify-content: center;
+}
+.PersonajeBuscado{
+  background-color: aqua;
+  min-height: 100vh; 
+  width: 100%; 
+}
+.episodios{
+  display: block; 
+  text-align: center;
+}
+
+.restar{
+  display: flex;
+  justify-content: center;
+  margin-top: 200px;
+  margin-bottom: 200px;
+  flex-direction: column;
+  align-items: center;
+}
+.personaje-episodio{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
