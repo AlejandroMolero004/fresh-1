@@ -1,5 +1,7 @@
 import { FreshContext, Handlers, PageProps } from "$fresh/server.ts";
 import Axios from "npm:axios";
+import Button from "../components/Button.tsx";
+import Character from "../components/Character.tsx";
 
 
 type api_data={
@@ -46,14 +48,18 @@ const Page=(data:PageProps<Data>)=>{
             <h1>Personajes episodio: {data.data.name}</h1>
             <div className="container">
                     {data.data.personajes?.map((ep, index) => (
+
                         <div class="personajes-episodio">
-                             <img src={ep.image}/>
-                            <p key={index}>{ep.name}</p>
-                            <p key={index}>{ep.status}</p>
-                           
-                        </div>
-                        
+                             <a href={`/saludarRM?id=${ep.id}`}>
+                                <Character name={ep.name} image={ep.image} status={ep.status} /> 
+                             </a>    
+                        </div>  
                     ))}
+            </div>
+            <div class="back">
+                                <a  class="nombre" href={`/saludarRM`}>
+                                <Button variant="primary">back</Button>
+                                </a>
             </div>
         </div>
     )
