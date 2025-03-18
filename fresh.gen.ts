@@ -22,6 +22,7 @@ import * as $test_subtest_page3 from "./routes/test/subtest/page3.tsx";
 import * as $test_subtest_subsubtest_layout from "./routes/test/subtest/subsubtest/_layout.tsx";
 import * as $test_subtest_subsubtest_page5 from "./routes/test/subtest/subsubtest/page5.tsx";
 import * as $Counter from "./islands/Counter.tsx";
+import * as $form from "./islands/form.tsx";
 import type { Manifest } from "$fresh/server.ts";
 
 const manifest = {
@@ -50,6 +51,7 @@ const manifest = {
   },
   islands: {
     "./islands/Counter.tsx": $Counter,
+    "./islands/form.tsx": $form,
   },
   baseUrl: import.meta.url,
 } satisfies Manifest;

@@ -28,16 +28,14 @@ type Data ={
 export const handler:Handlers<Data>={
     GET:async (req:Request,ctx:FreshContext<unknown,Data>)=>{
         const url=new URL(req.url)
-        const url_ep=url.searchParams.get("url")||undefined
-        console.log("url")
-        console.log(url_ep)
+        console.log(url)
+        const url_ep=url.searchParams.get("id")||1
+
         const response = await Axios.get<api_data>(
-            url_ep!
+            `https://rickandmortyapi.com/api/episode/${url_ep}`
         ); 
-        console.log(response.data.characters)
         const response_personaje_promise = response.data.characters.map((p)=>Axios.get<Personaje>(p))
         const response_personaje=await Promise.all(response_personaje_promise)
-        console.log(response_personaje.at(0)?.data.name)
         return ctx.render({personajes:response_personaje.map((p)=>p.data),name:response.data.name})
     }
 }
@@ -45,7 +43,7 @@ export const handler:Handlers<Data>={
 const Page=(data:PageProps<Data>)=>{
     return (
         <div className="episodios">
-            <h1>Personajes episodio: {data.data.name}</h1>
+            <h1 className="titulo-ep">Personajes episodio: {data.data.name}</h1>
             <div className="container">
                     {data.data.personajes?.map((ep, index) => (
 

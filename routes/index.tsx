@@ -3,6 +3,7 @@ import Axios from "npm:axios"
 import Button from "../components/Button.tsx";
 import Counter from "../islands/Counter.tsx";
 import Character from "../components/Character.tsx";
+import Form from "../islands/form.tsx";
 
 
 type character={
@@ -28,7 +29,10 @@ export default async function Home(req:Request) {
         {personajes.data.results.map((p) => {
           return (
             <div>
-              <Character name={p.name} image={p.image} status={p.status} />
+              <a href={`saludarRM?id=${p.id}`}>
+                  <Character name={p.name} image={p.image} status={p.status} />
+              </a>
+              
             </div>
           );
         })}
@@ -61,6 +65,10 @@ export default async function Home(req:Request) {
         
         <div class="restar">
           <Counter initialvalue={5}/>
+        </div>
+
+        <div>
+          <Form></Form>
         </div>
         </>
     );

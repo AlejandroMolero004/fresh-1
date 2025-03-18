@@ -40,13 +40,16 @@ export const handler: Handlers = {
             );
 
             const episodes = await Promise.all(episode_promises);
+            console.log(episodes)
            
            
-            const episodes_name = episodes.map((e) => e.data.name);
+            const episodes_name:string[] = episodes.map((e) => e.data.name);
 
-            
+            episodes_name.forEach((name:string)=>{
+                console.log(name)
+            })
 
-
+           
             return ctx.render({ personaje: response.data, episodios: episodes_name, url_episode:response.data.episode});
 
         } catch (error) {
@@ -73,15 +76,10 @@ const Page = ({ data }: PageProps<Data>) => {
                 <h1 class="nombre">{data.personaje.name}</h1>
                 <h2 class="nombre">{data.personaje.status}</h2>
                 <h2 class="nombre">{data.personaje.species}</h2>
-                <div className="episodios">
-                    {data.episodios?.map((ep, index) => (
-                        <p key={index}>{ep}</p>
-                    ))}
-                </div>
-
-                <div className="episodios">
-                    {data.url_episode?.map((ep, index) => (
-                        <a  class="nombre" href={`/episodio/?url=${ep}`}>
+               
+                <div className="episodios-personaje">
+                    {data.episodios?.map((ep, id, index) => (
+                        <a  class="nombre" href={`/episodio/?id=${id+1}`}>
                              <p key={index}>{ep}</p>
                         </a>
                     ))}

@@ -198,8 +198,12 @@ button.secondary:active{
   width: 100%; 
 }
 .episodios{
-  display: block; 
+  display: flex; 
+  flex-direction: row;
+  flex-wrap: wrap;
   text-align: center;
+  align-items: center;
+  justify-content: center;
 }
 
 .restar{
@@ -220,4 +224,13 @@ button.secondary:active{
 a {
   text-decoration: none;
   color: inherit; 
+}
+.episodios-personaje{
+  display: flex; 
+  flex-direction: column;
+  flex-wrap: wrap;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+ 
 }
